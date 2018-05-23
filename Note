@@ -1,0 +1,2 @@
+gcc -std=c99 -c -Wall -I../crazyflie-firmware/src/modules/interface/ -I../crazyflie-firmware/src/hal/interface/ gather_data_from_mellinger_ctrl.c 
+
