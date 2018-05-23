@@ -1,6 +1,8 @@
 #include "controller.h"
 #include "stabilizer_types.h"
 
+#include "random_number_generator.h"
+
 #include <time.h>
 #include <math.h>
 #include <stdlib.h>
@@ -47,19 +49,12 @@ void init_setPoint(setpoint_t *setPoint) {
   setPoint->mode.quat = modeDisable;
 }
 
-float random_float(float lower, float upper) {
-  int random_int = rand();
-  float random_float = random_int/(float)RAND_MAX;  // between 0 and 1
-  float range = upper - lower;
-  return lower + range * random_float;
-}
-
 // the sqrt of each component of a unit quaternion sum to 1
 void random_unit_quat(quaternion_t *quat) {
-  float x = random_float(-50.0, 50.0);  // 50.0 is randomly chosen
-  float y = random_float(-50.0, 50.0);  // it shouldn't have a big affect on the
-  float z = random_float(-50.0, 50.0);  // distribution of the quaternion
-  float w = random_float(-50.0, 50.0);
+  float x = uniform_float();
+  float y = uniform_float(); 
+  float z = uniform_float();
+  float w = uniform_float();
 
   // normalize
   float norm = sqrt(x*x+y*y+z*z+w*w);

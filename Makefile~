@@ -28,4 +28,4 @@ random_number_generator.o: src/random_number_generator.c
 	$(CC) $(CFLAGS) $(INCLUDES) src/random_number_generator.c
 
 clean:
-	rm controller_mellinger.o gather_data_from_mellinger_ctrl.o random_number_generator.o
+	rm controller_mellinger.o gather_data_from_mellinger_ctrl.o
